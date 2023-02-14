@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     '@antfu',
     'plugin:react/all',
+    'plugin:react/jsx-runtime',
   ],
   plugins: [
     'react',
