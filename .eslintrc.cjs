@@ -12,7 +12,8 @@ module.exports = {
       ignoreProps: false,
       noAttributeStrings: true,
     }],
-    'react/forbid-component-props': [1, { forbid: ['false'] }],
+    'react/forbid-component-props': [0, { forbid: ['false'] }],
+    'react/jsx-no-bind': [0, { allowArrowFunctions: true }],
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
