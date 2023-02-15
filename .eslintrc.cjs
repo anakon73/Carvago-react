@@ -8,6 +8,7 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'plugin:storybook/recommended',
     'plugin:react-query/recommended',
+    './.eslintrc-auto-import.json',
   ],
   plugins: ['react', 'react-query'],
   rules: {

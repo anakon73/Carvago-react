@@ -18,8 +18,8 @@
     "noUncheckedIndexedAccess": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
   },
-  "include": ["vite.config.*", "src"],
+  "include": ["vite.config.*", "src", "auto-imports.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
