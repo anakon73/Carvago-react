@@ -23,6 +23,25 @@ module.exports = {
     }],
     'react/forbid-component-props': [0, { forbid: ['false'] }],
     'react/jsx-no-bind': [0, { allowArrowFunctions: true }],
+    'react/button-has-type': [0, {
+      button: false,
+      submit: false,
+      reset: false,
+    }],
+    'react/jsx-props-no-spreading': [0, {
+      html: 'ignore' | 'enforce',
+      custom: 'ignore' | 'enforce',
+      explicitSpread: 'ignore' | 'enforce',
+    }],
+    'react/require-default-props': [0, {
+      forbidDefaultForRequired: false,
+      classes: 'defaultProps' | 'ignore',
+      functions: 'defaultProps' | 'defaultArguments' | 'ignore',
+    }],
+    'react/function-component-definition': [0, {
+      namedComponents: 'function-declaration' | 'function-expression' | 'arrow-function' | 'function-declaration' | 'function-expression' | 'arrow-function',
+      unnamedComponents: 'function-expression' | 'arrow-function' | 'function-expression' | 'arrow-function',
+    }],
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
