@@ -4,4 +4,4 @@ export const ButtonVariant = ['primary', 'warning', 'light', 'link','underline']
 
 export type ButtonSize = typeof ButtonSize[number]
 
-export const ButtonSize = ['sm', 'md', 'lg', 'square']
+export const ButtonSize = ['sm', 'md', 'lg', 'square'] as const
