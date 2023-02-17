@@ -1,7 +1,8 @@
+/* eslint-disable react/no-multi-comp */
 import type { Meta, Story } from '@storybook/react'
-import { ButtonVariant, ButtonSize } from './types'
+import { CakeIcon } from '@heroicons/react/24/solid'
+import { ButtonSize, ButtonVariant } from './types'
 import { CButton, type CButtonProps } from '.'
-import {CakeIcon} from '@heroicons/react/24/solid'
 
 const meta: Meta<CButtonProps> = {
   title: 'Shared/UI/CButton',
@@ -15,7 +16,13 @@ const meta: Meta<CButtonProps> = {
       control: { type: 'select', options: ButtonSize },
       defaultValue: 'sm',
     },
-    disabled: { control: { type: 'boolean' }, defaultValue: 'false' },
+    disabled: { control: { type: 'boolean' } },
+  },
+  args: {
+    variant: 'primary',
+    size: 'sm',
+    disabled: false,
+
   },
 }
 
@@ -28,12 +35,15 @@ export const Default: Story = props => (
 )
 export const WithIcon: Story = props => (
     <CButton {...props} >
-        <CakeIcon className='h-6 w-6'/>
+        <CakeIcon className='h-6 w-6' />
     </CButton>
 )
 export const WithIconAndText: Story = props => (
     <CButton {...props} >
-        <CakeIcon className='h-6 w-6 mr-3'/>
-        <span>text</span>
+        <CakeIcon className='mr-3 h-6 w-6' />
+
+        <span>
+            text
+        </span>
     </CButton>
 )
