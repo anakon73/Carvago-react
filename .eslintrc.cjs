@@ -48,6 +48,7 @@ module.exports = {
        | 'function-expression' | 'arrow-function',
     }],
     'max-len': 'error',
+    '@typescript-eslint/no-redeclare': 'off',
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
