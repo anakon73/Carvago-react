@@ -39,9 +39,15 @@ module.exports = {
       functions: 'defaultProps' | 'defaultArguments' | 'ignore',
     }],
     'react/function-component-definition': [0, {
-      namedComponents: 'function-declaration' | 'function-expression' | 'arrow-function' | 'function-declaration' | 'function-expression' | 'arrow-function',
-      unnamedComponents: 'function-expression' | 'arrow-function' | 'function-expression' | 'arrow-function',
+      namedComponents:
+       'function-declaration'
+       | 'function-expression' | 'arrow-function'
+        | 'function-declaration' | 'function-expression' | 'arrow-function',
+      unnamedComponents:
+      'function-expression' | 'arrow-function'
+       | 'function-expression' | 'arrow-function',
     }],
+    'max-len': 'error',
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
