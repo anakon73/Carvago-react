@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { roundedVariant } from './types'
-import type { CSelectProps } from '.'
-import { CSelect } from '.'
+import { CSelect, type CSelectProps } from '.'
 
 const years = [
   2023,
@@ -35,10 +34,10 @@ export const Default: Story = (props) => {
 
   return (
       <CSelect
+          {...props}
           itemsList={years}
           onChange={(e: number) => setYear(e)}
           value={year}
-          {...props}
       />
   )
 }
