@@ -55,15 +55,12 @@ export const CSelect = <T extends Option>(
                       key={item}
                       value={item}
                   >
-                      {({ selected }) => (
-                          <span
-                              className={`block truncate ${
-                          selected ? 'font-bold' : 'font-normal'
+                      <span className={`block truncate ${
+                          item === value ? 'font-bold' : 'font-normal'
                         }`}
-                          >
-                              {item}
-                          </span>
-                      )}
+                      >
+                          {item}
+                      </span>
                   </Listbox.Option>
               ))}
           </Listbox.Options>
