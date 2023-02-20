@@ -55,9 +55,10 @@ export const CSelect = <T extends Option>(
                       key={item}
                       value={item}
                   >
-                      <span className={`block truncate ${
-                          item === value ? 'font-bold' : 'font-normal'
-                        }`}
+                      <span className={clsx(
+                        'block truncate',
+                        [item === value ? 'font-bold' : 'font-normal'],
+                      )}
                       >
                           {item}
                       </span>
