@@ -50,6 +50,13 @@ module.exports = {
     'max-len': 'error',
     '@typescript-eslint/no-redeclare': 'off',
     'react/jsx-max-depth': [0, { max: 100 }],
+    'react/no-unstable-nested-components': [
+      'off',
+      {
+        allowAsProps: true | false,
+        customValidators: [],
+      },
+    ],
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
