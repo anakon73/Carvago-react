@@ -49,6 +49,7 @@ module.exports = {
     }],
     'max-len': 'error',
     '@typescript-eslint/no-redeclare': 'off',
+    'react/jsx-max-depth': [0, { max: 100 }],
   },
   overrides: [{
     files: ['*.ts', '*.tsx', '*.js'],
