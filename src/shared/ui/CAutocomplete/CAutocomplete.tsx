@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-max-depth */
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { Combobox, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import type React from 'react'
+import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
 interface Option {
   value: number
@@ -16,10 +15,11 @@ type ComboboxProps = ExtractProps<typeof Combobox>
 export type Props<T extends Option> = ComboboxProps & {
   itemsList: T[]
   value: T
+  placeholder: string
 }
 
 export const CAutocomplete = <T extends Option>
-  ({ itemsList, ...props }: Props<T>) => {
+  ({ itemsList, placeholder, ...props }: Props<T>) => {
   const [query, setQuery] = useState('')
   const filteredPeople
   = query === ''
@@ -32,7 +32,7 @@ export const CAutocomplete = <T extends Option>
     )
 
   return (
-      <div className="w-72">
+      <div className="w-40">
           <Combobox
               {...props}
           >
@@ -48,19 +48,21 @@ export const CAutocomplete = <T extends Option>
                       sm:text-sm"
                   >
                       <Combobox.Input
-                          className="w-full border-none py-2 pl-3 pr-10
-                          text-sm leading-5 text-gray-900 focus:ring-0"
+                          className="w-full border-none py-2 pl-3
+                          pr-10 text-sm leading-5 text-gray-900
+                          focus:ring-0 disabled:bg-gray-200
+                          disabled:placeholder:text-gray-400"
                           displayValue={(person: T) => person.label}
                           onChange={event => setQuery(event.target.value)}
+                          placeholder={placeholder}
                       />
 
                       <Combobox.Button
                           className="absolute inset-y-0 right-0
                           flex items-center pr-2"
                       >
-                          <ChevronUpDownIcon
-                              aria-hidden="true"
-                              className="h-5 w-5 text-gray-400"
+                          <ChevronDownIcon
+                              className="h-4 w-4 text-gray-600"
                           />
                       </Combobox.Button>
                   </div>
@@ -73,10 +75,10 @@ export const CAutocomplete = <T extends Option>
                       leaveTo="opacity-0"
                   >
                       <Combobox.Options
-                          className="absolute mt-1 max-h-60 w-full
-                       overflow-auto rounded-md bg-white py-1 text-base
-                        shadow-lg ring-1 ring-black/5
-                        focus:outline-none sm:text-sm"
+                          className="absolute z-10 mt-1 max-h-60
+                       w-full overflow-auto rounded-md bg-white py-1
+                        text-base shadow-lg ring-1
+                        ring-black/5 focus:outline-none sm:text-sm"
                       >
                           {(filteredPeople.length === 0 && query !== '')
                             ? (
@@ -90,41 +92,21 @@ export const CAutocomplete = <T extends Option>
                                 filteredPeople.map(person => (
                                     <Combobox.Option
                                         className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      `relative cursor-default select-none py-2 pl-4 pr-4 ${
                         active ? 'bg-teal-600 text-white' : 'text-gray-900'
                       }`}
                                         key={person.value}
                                         value={person}
                                     >
-                                        {({ selected, active }) => (
-                                            <>
-                                                <span
-                                                    className={`block truncate 
+                                        {({ selected }) => (
+                                            <span
+                                                className={`block truncate 
                                                     ${
                             selected ? 'font-medium' : 'font-normal'
                           }`}
-                                                >
-                                                    {person.label}
-                                                </span>
-
-                                                {selected
-                                                  ? (
-                                                      <span
-                                                          className={`absolute
-                                                       inset-y-0 left-0 flex 
-                                                       items-center pl-3 ${
-                              active ? 'text-white' : 'text-teal-600'
-                            }`}
-                                                      >
-                                                          <CheckIcon
-                                                              aria-hidden="true"
-                                                              className="h-5
-                                                               w-5"
-                                                          />
-                                                      </span>
-                                                    )
-                                                  : null}
-                                            </>
+                                            >
+                                                {person.label}
+                                            </span>
                                         )}
                                     </Combobox.Option>
                                 ))
