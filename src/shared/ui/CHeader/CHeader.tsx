@@ -17,15 +17,15 @@ export const CHeader = () => {
                   <img src={carvagoLogo} />
 
                   <div className="flex gap-3">
-                      <CButton variant='underline'>
+                      <CButton variant='routerLink'>
                           Buy
                       </CButton >
 
-                      <CButton variant='underline'>
+                      <CButton variant='routerLink'>
                           How it works
                       </CButton>
 
-                      <CButton variant='underline'>
+                      <CButton variant='routerLink'>
                           Review
                       </CButton>
 
