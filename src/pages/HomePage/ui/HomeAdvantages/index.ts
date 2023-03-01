@@ -1,0 +1,3 @@
+export {
+  HomeAdvantages,
+} from './HomeAdvantages'
