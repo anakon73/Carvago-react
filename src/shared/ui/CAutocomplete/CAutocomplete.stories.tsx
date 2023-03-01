@@ -19,7 +19,7 @@ const people = [
 ]
 
 export const Default: Story = (props) => {
-  const [selected, setSelected] = useState(people[0])
+  const [selected, setSelected] = useState()
 
   return (
       <CAutocomplete
