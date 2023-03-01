@@ -16,7 +16,6 @@ export const CButton = React.forwardRef<HTMLButtonElement, Props>((
   return (
       <button
           className={clsx(
-            classes,
             'flex items-center font-sans',
             [
               size === 'square' && 'px-2',
@@ -42,12 +41,16 @@ export const CButton = React.forwardRef<HTMLButtonElement, Props>((
               variant === 'link' && [
                 'font-light text-blue-400',
               ],
-              variant === 'underline' && [
+              variant === 'routerLink' && [
                 'text-indigo-900 decoration-[3px]',
                 'hover:underline hover:underline-offset-[30px]',
                 'hover:text-blue-800',
               ],
+              variant === 'underline' && [
+                'text-blue-800 hover:underline',
+              ],
             ],
+            classes,
           )}
           ref={ref}
           {...props}
