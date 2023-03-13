@@ -1,5 +1,4 @@
 import { Float } from '@headlessui-float/react'
-import { useRef, useState } from 'react'
 
 interface Props {
   button: (args: {

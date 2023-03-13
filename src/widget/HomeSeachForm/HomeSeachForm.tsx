@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-closing-tag-location */
-import { useState } from 'react'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Previots from './assets/previous.svg'
@@ -99,6 +98,7 @@ export const HomeSearchForm = () => {
                           onChange={setSelectedBrand}
                           placeholder='Make'
                           value={selectedBrand}
+                          variant='noBorder'
                       />
 
                       <CAutocomplete
@@ -107,6 +107,7 @@ export const HomeSearchForm = () => {
                           onChange={setSelectedModel}
                           placeholder='Model'
                           value={selectedModel}
+                          variant='noBorder'
                       />
 
                       <CAutocomplete
@@ -114,6 +115,7 @@ export const HomeSearchForm = () => {
                           onChange={setSelectedMileage}
                           placeholder='Mileage'
                           value={selectedMileage}
+                          variant='noBorder'
                       />
 
                       <CAutocomplete
@@ -121,6 +123,7 @@ export const HomeSearchForm = () => {
                           onChange={setSelectedRegisterDate}
                           placeholder='Registration from'
                           value={selectedRegisterDate}
+                          variant='noBorder'
                       />
 
                       <CAutocomplete
@@ -128,6 +131,7 @@ export const HomeSearchForm = () => {
                           onChange={setSelectedPrice}
                           placeholder='Price'
                           value={selectedPrice}
+                          variant='noBorder'
                       />
 
                       <CCheckbox
