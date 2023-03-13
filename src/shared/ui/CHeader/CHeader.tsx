@@ -4,8 +4,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { CButton } from '../CButton'
 import { CHoverMenu } from '../CHoverMenu'
+import carvagoLogo from '../../assets/carvago-logo.svg'
 import british from './assets/british.png'
-import carvagoLogo from './assets/carvago-logo.svg'
 
 const serviceButtons = ['CarAudit \u2122', 'Delivery', 'Financing', 'Warranty']
 
