@@ -1,7 +1,9 @@
 import { Combobox, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import type React from 'react'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import clsx from 'clsx'
+import type { roundedVariant, variant } from './types'
 
 interface Option {
   value: number
@@ -16,10 +18,12 @@ export type Props<T extends Option> = ComboboxProps & {
   itemsList: T[]
   value: T
   placeholder: string
+  variant: variant
+  rounededSide: roundedVariant
 }
 
 export const CAutocomplete = <T extends Option>
-  ({ itemsList, placeholder, ...props }: Props<T>) => {
+  ({ itemsList, placeholder, rounededSide, variant, ...props }: Props<T>) => {
   const [query, setQuery] = useState('')
   const filteredPeople
   = query === ''
@@ -32,26 +36,47 @@ export const CAutocomplete = <T extends Option>
     )
 
   return (
-      <div className="w-40">
+      <div className={clsx(
+        [
+          variant === 'noBorder' && 'w-40',
+          variant === 'border' && 'w-24',
+        ],
+      )}
+      >
           <Combobox
               {...props}
           >
               <div className="relative mt-1">
                   <div
-                      className="relative w-full cursor-default
-                      overflow-hidden rounded-lg
-                      bg-white text-left shadow-md focus:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-white/75
-                      focus-visible:ring-offset-2
-                      focus-visible:ring-offset-teal-300
-                      sm:text-sm"
+                      className={clsx(
+                        variant === 'border' && [
+                          'flex w-24 items-center justify-between',
+                          'border border-slate-600 p-1 text-sm transition-all',
+                          'hover:border-indigo-700',
+                          'group',
+                          [
+                            rounededSide === 'left' && 'rounded-l-lg',
+                            rounededSide === 'right' && 'rounded-r-lg',
+                          ],
+                        ],
+                        variant === 'noBorder' && [
+                          'relative w-full cursor-default',
+                          'overflow-hidden rounded-lg',
+                          'bg-white text-left shadow-md focus:outline-none',
+                          'focus-visible:ring-2',
+                          'focus-visible:ring-white/75',
+                          'focus-visible:ring-offset-2',
+                          'focus-visible:ring-offset-teal-300',
+                          'sm:text-sm',
+                        ],
+                      )}
                   >
                       <Combobox.Input
                           className="w-full border-none py-2 pl-3
-                          pr-10 text-sm leading-5 text-gray-900
+                          pr-0 text-sm leading-5 text-gray-900
                           focus:ring-0 disabled:bg-gray-200
-                          disabled:placeholder:text-gray-400"
+                          disabled:placeholder:text-gray-400
+                          group-hover:placeholder:text-indigo-700"
                           displayValue={(person: T) => person.label}
                           onChange={event => setQuery(event.target.value)}
                           placeholder={placeholder}
@@ -62,7 +87,9 @@ export const CAutocomplete = <T extends Option>
                           flex items-center pr-2"
                       >
                           <ChevronDownIcon
-                              className="h-4 w-4 text-gray-600"
+                              className="
+                              h-4 w-4 text-gray-600
+                              group-hover:text-indigo-700 "
                           />
                       </Combobox.Button>
                   </div>
@@ -95,7 +122,7 @@ export const CAutocomplete = <T extends Option>
                       `relative cursor-default select-none py-2 pl-4 pr-4 ${
                         active ? 'bg-teal-600 text-white' : 'text-gray-900'
                       }`}
-                                        key={person.value}
+                                        key={person.label}
                                         value={person}
                                     >
                                         {({ selected }) => (
