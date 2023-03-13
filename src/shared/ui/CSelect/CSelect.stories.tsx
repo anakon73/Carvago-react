@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { roundedVariant } from './types'
 import { CSelect, type CSelectProps } from '.'
