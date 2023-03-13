@@ -1,6 +1,6 @@
 export const ButtonVariant = [
   'primary', 'warning', 'routerLink',
-  'light', 'link', 'underline',
+  'light', 'link', 'underline', 'border',
 ] as const
 export const ButtonSize = ['sm', 'md', 'lg', 'square'] as const
 

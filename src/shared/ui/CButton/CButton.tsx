@@ -49,6 +49,9 @@ export const CButton = React.forwardRef<HTMLButtonElement, Props>((
               variant === 'underline' && [
                 'text-blue-800 hover:underline',
               ],
+              variant === 'border' && [
+                'border border-indigo-600',
+              ],
             ],
             classes,
           )}
