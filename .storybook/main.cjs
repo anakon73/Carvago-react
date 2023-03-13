@@ -1,3 +1,4 @@
+const AutoImport = require('unplugin-auto-import/vite')
 const path = require('path');
 
 module.exports = {
@@ -18,6 +19,13 @@ module.exports = {
     "storyStoreV7": true
   },
   viteFinal: async (config) => {
+    config.plugins.push(AutoImport({
+      imports: ['react', 'react-router-dom'],
+      dts: true,
+      eslintrc: {
+        enabled: true,
+      },
+    }))
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, "../src/"),
